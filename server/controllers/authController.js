@@ -13,9 +13,11 @@ module.exports = {
   }, 
   login: ( req, res) => { 
     const { session } = req 
-    const { username } = req.body
+    const { username, password } = req.body
+    console.log(users)
 
-    const user = users.find(user => user.name === username && user.password === password)
+    const user = users.find(user => user.username === username && user.password === password)
+    console.log(username, password)
 
     if (user) { 
       session.user.username = user.username
